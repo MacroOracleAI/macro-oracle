@@ -1,5 +1,6 @@
 ﻿require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const cron = require('node-cron');
 const {
   fetchSelicExpectativas,
@@ -73,6 +74,9 @@ function x402Middleware(req, res, next) {
   next();
 }
 
+app.get('/.well-known/agent-marketplace.json', (req, res) => {
+  res.sendFile(path.join(__dirname, '../.well-known/agent-marketplace.json'));
+});
 app.use(x402Middleware);
 app.use('/brazil', brazilRoutes);
 app.use('/global', globalRoutes);
