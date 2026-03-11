@@ -77,6 +77,7 @@ function x402Middleware(req, res, next) {
 app.get('/.well-known/agent-marketplace.json', (req, res) => {
   res.sendFile(path.join(__dirname, '../.well-known/agent-marketplace.json'));
 });
+
 app.use(x402Middleware);
 app.use('/brazil', brazilRoutes);
 app.use('/global', globalRoutes);
