@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "name": "Macro Oracle",
+  "description": "Structured macroeconomic data for AI agents. Brazil (BCB, IBGE, COPOM) and global central banks (Fed, ECB, BoJ). Pay-per-call via x402 in USDC on Base mainnet.",
+  "url": "https://macro-oracle-production-5de5.up.railway.app",
+  "protocol": "x402",
+  "network": "base-mainnet",
+  "currency": "USDC",
+  "tools": [
+    { "name": "brazil_selic", "endpoint": "/brazil/selic", "method": "GET", "description": "SELIC current rate + Focus expectations + next COPOM date + historical surprises", "price_usd": 0.02 },
+    { "name": "brazil_ipca", "endpoint": "/brazil/ipca", "method": "GET", "description": "IPCA realized inflation + Focus expectations + next release date + historical surprises", "price_usd": 0.02 },
+    { "name": "brazil_copom_calendar", "endpoint": "/brazil/copom-calendar", "method": "GET", "description": "COPOM meeting calendar + implied probabilities of cut / hold / hike", "price_usd": 0.03 },
+    { "name": "brazil_focus_snapshot", "endpoint": "/brazil/focus-snapshot", "method": "GET", "description": "Full Focus snapshot: IPCA, SELIC, GDP, FX + weekly changes + signal_for_agents", "price_usd": 0.05 },
+    { "name": "brazil_surprise_index", "endpoint": "/brazil/surprise-index", "method": "GET", "description": "Brazil macro surprise index (z-score vs consensus) + polymarket_relevance score", "price_usd": 0.05 },
+    { "name": "global_calendar", "endpoint": "/global/calendar", "method": "GET", "description": "Next 30 days: FOMC, ECB, BoJ, BCB, NFP, CPI with consensus and probabilities", "price_usd": 0.03 },
+    { "name": "global_fomc", "endpoint": "/global/fomc", "method": "GET", "description": "Fed: current rate + CME FedWatch probabilities + dot plot + historical surprises", "price_usd": 0.04 },
+    { "name": "global_surprise_matrix", "endpoint": "/global/surprise-matrix", "method": "GET", "description": "Macro surprises last 30 days for US/EU/BR/JP/CN + polymarket_signals", "price_usd": 0.06 }
+  ],
+  "contact": {
+    "twitter": "@MacroOracleAI",
+    "github": "https://github.com/MacroOracleAI/macro-oracle"
+  }
+}
